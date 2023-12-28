@@ -15,8 +15,6 @@ function NewChat() {
 		session && query(collection(db, 'users', session.user?.email!, 'chats'), orderBy('createdAt', 'asc'))
 	)
 
-	console.log('chats:', chats)
-
 	const createNewChat = async () => {
 		// Sprawdź, czy użytkownik jest zalogowany
 		if (!session || !session.user || !session.user.email) {
@@ -33,10 +31,7 @@ function NewChat() {
 
 		try {
 			const docRef = collection(db, 'users', session.user.email, 'chats')
-			console.log('Ścieżka do kolekcji w Firestore:', docRef.path)
-
 			const doc = await addDoc(docRef, chatData)
-			console.log('Utworzono nowy czat, ID dokumentu:', doc.id)
 
 			router.push(`/chat/${doc.id}`)
 		} catch (error) {
@@ -45,7 +40,7 @@ function NewChat() {
 	}
 
 	return (
-		<div>
+		<div className='h-1/2'>
 			<div className='border-gray-700 border chatRow' style={{ width: 'max-content' }} onClick={createNewChat}>
 				<PlusIcon className='h-4 w-4' />
 				<p>Nowy Chat</p>

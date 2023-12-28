@@ -1,10 +1,9 @@
-import OpenAIApi from 'openai'
-import Configuration from 'openai/src/configuration'
+import OpenAI from 'openai'
+import http from 'http'
+import { HttpsProxyAgent } from 'https-proxy-agent'
 
-const configuration = new Configuration({
+const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 })
-
-const openai = new OpenAIApi(configuration)
 
 export default openai

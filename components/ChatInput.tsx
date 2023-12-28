@@ -15,7 +15,7 @@ function ChatInput({ chatId }: Props) {
 	const { data: session } = useSession()
 
 	//model gpt
-	const model = 'davinci'
+	const model = 'gpt-4-1106-preview'
 
 	const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -49,18 +49,27 @@ function ChatInput({ chatId }: Props) {
 		}).then(() => {
 			toast.success('Twój asystent AI odpowiedział!', { id: notification })
 		})
+
+		await fetch('/api/analyzeText', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ text: input, chatId, model, session }),
+		}).then(() => {
+			toast.success('Tekst odebrany z analizy...', { id: notification })
+		})
 	}
 
 	return (
 		<div className='bg-gray-700/50 text-gray-400 rounded-lg text-sm'>
 			<form className='p-5 space-x-5 flex' onSubmit={sendMessage}>
-				<input
+				<textarea
 					disabled={!session}
 					value={prompt}
 					onChange={e => setPrompt(e.target.value)}
-					type='text'
 					placeholder='Wklej Swój tekst tutaj ...'
-					className='bg-transparent focus:outline-none flex-1 disabled:cursor-not-allowed disabled:text-gray-300'
+					className='bg-transparent focus:outline-none flex-1 disabled:cursor-not-allowed disabled:text-gray-300 h-60'
 				/>
 				<button
 					type='submit'
