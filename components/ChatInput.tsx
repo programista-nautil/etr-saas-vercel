@@ -15,7 +15,7 @@ function ChatInput({ chatId }: Props) {
 	const { data: session } = useSession()
 
 	//model gpt
-	const model = 'gpt-4-1106-preview'
+	const model = 'gpt-3.5-turbo-16k'
 
 	const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
