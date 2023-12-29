@@ -14,9 +14,9 @@ const ChatsPage = () => {
 						</div>
 
 						<div className='space-y-2'>
-							<p className='infoText'>"prompt1"</p>
-							<p className='infoText'>"prompt2"</p>
-							<p className='infoText'>"prompt3"</p>
+							<p className='infoText'>prompt1</p>
+							<p className='infoText'>prompt2</p>
+							<p className='infoText'>prompt3</p>
 						</div>
 					</div>
 					<div className=''>
@@ -26,9 +26,9 @@ const ChatsPage = () => {
 						</div>
 
 						<div className='space-y-2'>
-							<p className='infoText'>"prompt4"</p>
-							<p className='infoText'>"prompt5"</p>
-							<p className='infoText'>"prompt6"</p>
+							<p className='infoText'>prompt4</p>
+							<p className='infoText'>prompt5</p>
+							<p className='infoText'>prompt6</p>
 						</div>
 					</div>
 					<div className=''>
