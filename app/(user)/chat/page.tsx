@@ -38,9 +38,9 @@ const ChatsPage = () => {
 						</div>
 
 						<div className='space-y-2'>
-							<p className='infoText'>"prompt7"</p>
-							<p className='infoText'>"prompt8"</p>
-							<p className='infoText'>"prompt9"</p>
+							<p className='infoText'>prompt7</p>
+							<p className='infoText'>prompt8</p>
+							<p className='infoText'>prompt9</p>
 						</div>
 					</div>
 				</div>
